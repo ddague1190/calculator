@@ -12,7 +12,7 @@ let ledgerArray = [];
 let ledgerValue = '';
 let currentOperandHasDecimal = false;
 let parentheticalProblem = false;
-const operationTypes = ['÷', '+', '−', '×'];
+const operationTypes = ['÷', '+', '−', '×', '*', '/'];
 const otherTypes = [')', '.', '%'];
 const operations = {
     '/': (x,y) => x/y,
@@ -45,6 +45,10 @@ operatorNodes.forEach(operator => {
         
         // check if lastEntry is number or a decimal
         if(!isNaN(parseInt(lastEntry)) || otherTypes.includes(lastEntry)) {
+
+            // kluge to disallow consecutive percentage symbols
+            if(operator.innerHTML=='%' && lastEntry == '%') return; 
+
             ledgerValue += ` ${operator.innerHTML} `;
             currentOperandHasDecimal = false;            
         }
@@ -64,7 +68,7 @@ const startParens = document.getElementById('sym(');
 startParens.addEventListener('click', () => {
     let ledgerValueConcatentated = ledgerValue.split(' ').join('');
     let lastEntry = ledgerValueConcatentated.slice(-1);
-    if (lastEntry == '' || operationTypes.includes(lastEntry)) {
+    if (lastEntry == '' || lastEntry == '(' || operationTypes.includes(lastEntry)) {
         ledgerValue += ` ${startParens.innerHTML} `
         updateLedger();
     }
@@ -92,6 +96,8 @@ numberNodes.forEach(number => {
 
     number.addEventListener('click', () => {
 
+        const reg = /^[\d%]\s/;    
+        if(reg.test(ledgerValue.slice(-2))) return;
         ledgerValue += number.innerHTML;
         updateLedger();
     }); 
@@ -236,6 +242,7 @@ function calculate() {
 	replaceOperators();
 	makeLedgerArray();
 	executePercentage();
+
 	calculateParensInternals();
     if(parentheticalProblem) {
         result.classList.add('error');

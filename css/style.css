@@ -1,1 +1,104 @@
-.calc{display:grid;position:relative;border:1px solid #333;padding:1rem;width:25rem;height:45rem;margin:2rem auto;text-align:center;font-size:4rem;font-family:"Monospace";color:#e5e5e5;grid-template-columns:repeat(4, 1fr);grid-gap:1rem}.calc__screen{border:1px solid #333;grid-column:1 / -1;height:10rem;display:flex;flex-direction:column;align-items:flex-end;justify-content:end;color:black;padding:1rem}.calc__screen--ledger{font-size:1.4rem;height:4rem}.calc__screen--result{font-size:4rem;height:6rem}.calc__button{background-color:rgba(51,51,51,0.5);border-radius:3px}.calc__button span{padding-top:0.5rem;display:block;border-radius:3px;background-color:rgba(34,34,34,0.9);width:100%;height:100%;transform:translateY(-6px)}.calc__button span:active{transform:translateY(-2px)}.calc::before{content:"Pure JS Calculator";color:red;font-size:1.2rem;position:absolute;display:inline;width:100%;top:-1px;left:50%;transform:translateX(-50%)}svg{padding:2rem;position:fixed;height:20rem;width:20rem;top:1rem;left:1rem;z-index:-1;overflow:visible}text{font-family:"Monospace";fill:#333}.error{font-size:2rem;-webkit-animation:1s infinite alternate flashing;animation:1s infinite alternate flashing}@-webkit-keyframes flashing{from{opacity:0.2}to{opacity:1}}@keyframes flashing{from{opacity:0.2}to{opacity:1}}*{margin:0;padding:0}*,*::after,*::before{box-sizing:inherit}html{font-size:62.5%;box-sizing:border-box}@media only screen and (max-width: 500px){html{font-size:50%}}@media only screen and (max-width: 300px){html{font-size:42.5%}}body{width:100%;display:flex;align-items:center;justify-content:center;height:100vh;background-image:linear-gradient(#e5e5e5, rgba(0,0,0,0.2))}
+.calc {
+  display: grid;
+  position: relative;
+  border: 1px solid #333;
+  padding: 1rem;
+  width: 25rem;
+  height: 45rem;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 4rem;
+  font-family: "Monospace";
+  color: #e5e5e5;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem; }
+  .calc__screen {
+    border: 1px solid #333;
+    grid-column: 1 / -1;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    color: black;
+    padding: 1rem; }
+    .calc__screen--ledger {
+      font-size: 1.4rem;
+      height: 4rem; }
+    .calc__screen--result {
+      font-size: 4rem;
+      height: 6rem; }
+  .calc__button {
+    background-color: rgba(51, 51, 51, 0.5);
+    border-radius: 3px; }
+    .calc__button span {
+      padding-top: 0.5rem;
+      display: block;
+      border-radius: 3px;
+      background-color: rgba(34, 34, 34, 0.9);
+      width: 100%;
+      height: 100%;
+      transform: translateY(-6px); }
+      .calc__button span:active {
+        transform: translateY(-2px); }
+  .calc::before {
+    content: "Pure JS Calculator";
+    color: red;
+    font-size: 1.2rem;
+    position: absolute;
+    display: inline;
+    width: 100%;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%); }
+
+svg {
+  padding: 2rem;
+  position: fixed;
+  height: 20rem;
+  width: 20rem;
+  top: 1rem;
+  left: 1rem;
+  z-index: -1;
+  overflow: visible; }
+
+text {
+  font-family: "Monospace";
+  fill: #333; }
+
+.error {
+  font-size: 2rem;
+  animation: 1s infinite alternate flashing; }
+
+@keyframes flashing {
+  from {
+    opacity: 0.2; }
+  to {
+    opacity: 1; } }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+  @media only screen and (max-width: 500px) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 300px) {
+    html {
+      font-size: 42.5%; } }
+
+body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(#e5e5e5, rgba(0, 0, 0, 0.2)); }
